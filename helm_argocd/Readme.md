@@ -163,7 +163,7 @@ metadata:
 data:
   policy.default: role:readonly
   policy.csv: |
-    g, choi, role:org-admin
+    g, choi, role:admin
 ```
 
 ## 8.3 계정 페이지 이동
