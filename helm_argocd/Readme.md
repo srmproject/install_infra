@@ -29,6 +29,11 @@ helm repo update
 <br>
 
 # 4. cert-manager issuer 생성
+* 아래 생성한 파일 모두 kubectl로 실행
+```sh
+kubectl apply -f .
+```  
+
 ## 4.1 namespace 생성
 ```sh
 kubectl create argocd
@@ -84,6 +89,9 @@ server:
       kubernetes.io/ingress.class: nginx
       cert-manager.io/issuer: "argocd-prodissuser"
       nginx.ingress.kubernetes.io/proxy-body-size: "0"
+      # reference: https://argoproj.github.io/argo-cd/operator-manual/ingress/#ssl-passthrough-with-cert-manager-and-lets-encrypt
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     hosts:
       - argocd.choilab.xyz
     tls:
@@ -99,3 +107,5 @@ server:
 ```sh
 helm install -n argocd -f override_values.yaml  argocd argo/argo-cd
 ```
+
+![](imgs/open_webdashboard.png)
