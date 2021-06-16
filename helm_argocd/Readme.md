@@ -162,6 +162,7 @@ metadata:
   ...
 data:
   policy.default: role:readonly
+  policy.csv: |
     g, choi, role:org-admin
 ```
 
