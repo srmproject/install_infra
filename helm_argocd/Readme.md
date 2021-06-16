@@ -8,6 +8,11 @@
 - [5. override_values.yaml파일 생성](#5-override_valuesyaml파일-생성)
 - [6. helm 설치](#6-helm-설치)
 - [7. 초기 로그인 계정/비밀번호](#7-초기-로그인-계정비밀번호)
+- [8. 액세스 토큰 생성](#8-액세스-토큰-생성)
+  - [8.1 계정 추가](#81-계정-추가)
+  - [8.2 계정권한 설정](#82-계정권한-설정)
+  - [8.3 계정 페이지 이동](#83-계정-페이지-이동)
+  - [8.4 토큰 생성](#84-토큰-생성)
 
 # 1. 개요
 * argcod helm 설치와 설정 메뉴얼
@@ -119,3 +124,54 @@ helm install -n argocd -f override_values.yaml  argocd argo/argo-cd
 ```sh
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
+
+# 8. 액세스 토큰 생성
+
+## 8.1 계정 추가
+> 참고자료: https://argoproj.github.io/argo-cd/operator-manual/user-management/
+* configmap argocd-cm을 편집하여 api, 로그인이 가능한 계정 생성
+
+```sh
+kubectl edit configmap -n argocd argocd-cm
+```
+
+```yaml
+apiVersion: v1
+data:
+  application.instanceLabelKey: argocd.argoproj.io/instance
+  url: https://argocd.example.com
+kind: ConfigMap
+metadata:
+  ...
+data:
+  accounts.choi: apiKey, login
+```
+
+## 8.2 계정권한 설정
+> 참고자료: https://argoproj.github.io/argo-cd/operator-manual/rbac/
+* configmap argocd-rbac-cm을 편집하여 추가한 계정에 관리자 권한 설정
+
+```sh
+kubectl edit configmap -n argocd argocd-rbac-cm
+```
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  ...
+data:
+  policy.default: role:readonly
+    g, choi, role:org-admin
+```
+
+## 8.3 계정 페이지 이동
+
+![](imgs/token5.png)
+
+![](imgs/token6.png)
+
+## 8.4 토큰 생성
+* 토큰 생성버튼 클릭
+
+![](imgs/token7.png)
