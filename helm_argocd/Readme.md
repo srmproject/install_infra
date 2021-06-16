@@ -7,9 +7,10 @@
   - [4.3 issuer 생성](#43-issuer-생성)
 - [5. override_values.yaml파일 생성](#5-override_valuesyaml파일-생성)
 - [6. helm 설치](#6-helm-설치)
+- [7. 초기 로그인 계정/비밀번호](#7-초기-로그인-계정비밀번호)
 
 # 1. 개요
-* argcod helm 설치 메뉴얼
+* argcod helm 설치와 설정 메뉴얼
 
 <br>
 
@@ -109,3 +110,12 @@ helm install -n argocd -f override_values.yaml  argocd argo/argo-cd
 ```
 
 ![](imgs/open_webdashboard.png)
+
+<br>
+
+# 7. 초기 로그인 계정/비밀번호
+* 계정: admin
+* 비밀번호: 아래 명령어 실행
+```sh
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+```
