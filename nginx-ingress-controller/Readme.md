@@ -24,7 +24,7 @@ kubectl create ns infra
 helm install -n infra nginx-ingress nginx-stable/nginx-ingress
 ```
 
-![installed](imgs/installed)
+![installed](./imgs/installed.png)
 
 <br>
 
