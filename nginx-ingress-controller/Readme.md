@@ -10,7 +10,7 @@
 
 # helm 저장소 추가
 ```sh
-helm repo add nginx-stable https://helm.nginx.com/stable
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 ```
 
@@ -88,3 +88,4 @@ spec:
 # 참고자료
 * https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/
 * https://kubernetes.github.io/ingress-nginx/deploy/#local-testing
+* https://github.com/kubernetes/ingress-nginx
