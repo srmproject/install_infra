@@ -11,3 +11,6 @@ spec:
   claimRef:
     name: grafana
     namespace: infra
+  hostPath:
+    path: /mnt/data/grafana
+    
