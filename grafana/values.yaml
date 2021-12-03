@@ -1,3 +1,5 @@
+nodeSelector: 
+  role: infra
 ingress:
   enabled: true
   ingressClassName: nginx
