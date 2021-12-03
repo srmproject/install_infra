@@ -7,6 +7,11 @@
 # override_valeus.yaml
 * values.yaml파일 참고
 
+# 설치
+```sh
+helm install -n infra -f values.yaml grafana grafana/grafana
+```
+
 # 참고자료
 * 공식문서: https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 * https://medium.com/@kevincoakley/reusable-persistent-volumes-with-the-existingclaim-option-for-the-grafana-prometheus-operator-84568b96315
