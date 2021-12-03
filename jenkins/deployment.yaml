@@ -13,6 +13,7 @@ spec:
       labels:
         app: jenkins
     spec:
+      serviceAccountName: helm-deploy
       nodeSelector:
         kubernetes.io/hostname: node2
       securityContext:
