@@ -1,11 +1,22 @@
+- [개요](#--)
+- [pv, pvc생성](#pv--pvc--)
+- [override_valeus.yaml](#override-valeusyaml)
+- [설치](#--)
+- [초기 비밀번호](#-------)
+- [참고자료](#----)
+
 # 개요
 * helm grafana chart를 이용하여 grafana 설치
 
+# 목표
+* ingress subpath 설정
+* pv, pvc.yaml 설정과 연동
+
 # pv, pvc생성
-* pv.yaml, pvc.yaml 참고
+* [pv.yaml](./pv.yaml), [pvc.yaml](./pvc.yaml) 참고
 
 # override_valeus.yaml
-* values.yaml파일 참고
+* [values.yaml](./values.yaml)파일 참고
 
 # 설치
 ```sh
