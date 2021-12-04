@@ -30,8 +30,9 @@ helm upgrade --install -n infra -f values.yaml loki grafana/loki
 
 # 추가 작업
 * grafana 대시보드 설치 후 연결
-    * [helm을 이용한 grafana 설치](../grafana/Readme.md)
+> [helm을 이용한 grafana 설치](../grafana/Readme.md)
 
+![grafana png](./imgs/grafana_settings.png)
 
 # 참고자료
 * 공식문서: https://grafana.com/docs/loki/latest/installation/helm/
