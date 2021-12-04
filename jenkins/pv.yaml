@@ -5,8 +5,8 @@ metadata:
   labels:
     type: jenkins
 spec:
-  storageClassName: manual
-  persistentVolumeReclaimPolicy: Retain
+  # storageClassName: manual
+  # persistentVolumeReclaimPolicy: Retain
   claimRef:
     name: jenkins
     namespace: infra
@@ -15,4 +15,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/kubernetes/jenkins"
+    path: "/mnt/data/jenkins"
