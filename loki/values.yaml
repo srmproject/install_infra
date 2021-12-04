@@ -1,0 +1,8 @@
+nodeSelector: 
+  role: infra
+persistence:
+  enabled: true
+  accessModes:
+  - ReadWriteOnce
+  size: 40Gi
+  existingClaim: loki

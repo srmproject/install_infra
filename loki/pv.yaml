@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: loki
+  namespace: infra
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 40Gi
+  claimRef:
+    name: grafana
+    namespace: infra
+  hostPath:
+    path: /mnt/data/loki
+    
