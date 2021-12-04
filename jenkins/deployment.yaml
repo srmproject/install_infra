@@ -30,8 +30,8 @@ spec:
         volumeMounts:
         - name: jenkins-home
           mountPath: /var/jenkins_home
-        # - name: docker-sock
-        #   mountPath: /var/run/docker.sock
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
         - name: kuebctl
           mountPath: /usr/local/bin/kubectl
         - name: helm
@@ -43,9 +43,9 @@ spec:
       - name: helm
         hostPath:
           path: /usr/local/bin/helm
-    #   - name: docker-sock
-    #     hostPath:
-    #       path: /var/run/docker.sock
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock
       - name: kuebctl
         hostPath:
           path: /usr/local/bin/kubectl
