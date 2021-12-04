@@ -15,7 +15,7 @@ spec:
     spec:
       serviceAccountName: helm-deploy
       nodeSelector:
-        kubernetes.io/hostname: node2
+        kubernetes.io/hostname: infra
       securityContext:
         runAsUser: 0
         runAsGroup: 0
