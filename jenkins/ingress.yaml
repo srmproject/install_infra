@@ -3,10 +3,13 @@ kind: Ingress
 metadata:
   name: jenkins
   namespace: infra
+  # annotations:
+    # nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # nginx.ingress.kubernetes.io/add-base-url: "true"
 spec:
   ingressClassName: nginx
   rules:
-  - host: jenkins.choilab.xyz
+  - host: sre.choilab.xyz/jenkins
     http:
       paths:
       - backend:
@@ -14,5 +17,5 @@ spec:
             name: jenkins
             port:
               number: 8080
-        path: /
+        path: /jenkins
         pathType: Prefix

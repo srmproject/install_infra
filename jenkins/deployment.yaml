@@ -22,9 +22,12 @@ spec:
       containers:
       - name: jenkins
         image: choisunguk/jenkins:jdk11
+        resources: {}
         env:
         - name: TZ
           value: Asia/Seoul
+        - name: JENKINS_OPTS
+          value: "--prefix=/jenkins"
         ports:
         - containerPort: 8080
         volumeMounts:
@@ -35,7 +38,7 @@ spec:
         - name: kuebctl
           mountPath: /usr/local/bin/kubectl
         - name: helm
-          mountPath: /usr/local/bin/helm
+          mountPath: /usr/local/bin/helm          
       volumes:
       - name: jenkins-home
         persistentVolumeClaim:
