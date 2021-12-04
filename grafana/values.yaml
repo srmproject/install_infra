@@ -2,16 +2,16 @@ nodeSelector:
   role: infra
 ingress:
   enabled: true
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  # annotations:
+  #   nginx.ingress.kubernetes.io/rewrite-target: /$2
   ingressClassName: nginx
-  path: "/grafana(/|$)(.*)"
+  path: /grafana($|(/.*))
   hosts:
       - "sre.choilab.xyz"
   grafana.ini:
     server:
       domain: choilab.xyz
-      root_url: "http://sre.choilab.xyz/grafana/"
+      root_url: http://sre.choilab.xyz/grafana/
       serve_from_sub_path: true
 persistence:
   enabled: true
