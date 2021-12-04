@@ -1,0 +1,2 @@
+config:
+  lokiAddress: http://loki.infra.svc:3100/loki/api/v1/push
