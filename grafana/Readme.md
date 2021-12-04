@@ -1,5 +1,5 @@
 # 개요
-* 그라파나 helm설정
+* helm grafana chart를 이용하여 grafana 설치
 
 # pv, pvc생성
 * pv.yaml, pvc.yaml 참고
