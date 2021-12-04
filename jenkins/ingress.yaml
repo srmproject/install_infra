@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "sre.choilab.xyz/jenkins"
+  - host: sre.choilab.xyz
     http:
       paths:
       - backend:
