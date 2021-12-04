@@ -1,3 +1,10 @@
+- [개요](#--)
+- [사전준비](#----)
+- [helm 저장소 업데이트](#helm---------)
+- [설치](#--)
+- [추가 작업](#-----)
+- [참고자료](#----)
+
 # 개요
 * helm loki chart를 이용하여 loki 설치
 
@@ -18,8 +25,7 @@ helm repo update
 * prometheus 설치 비활성화
 * 
 ```sh
-helm upgrade --install loki -n infra grafana/loki-stack \
---set grafana.enabled=true,prometheus.enabled=false,prometheus.alertmanager.persistentVolume.enabled=false,prometheus.server.persistentVolume.enabled=false
+helm upgrade --install -n infra -f values.yaml loki grafana/loki
 ```
 
 # 추가 작업
