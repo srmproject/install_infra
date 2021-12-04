@@ -9,7 +9,7 @@ spec:
   capacity:
     storage: 40Gi
   claimRef:
-    name: grafana
+    name: loki
     namespace: infra
   hostPath:
     path: /mnt/data/loki
