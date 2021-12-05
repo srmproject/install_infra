@@ -1,0 +1,50 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nexus
+  namespace: infra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nexus
+  template:
+    metadata:
+      labels:
+        app: nexus
+    spec:
+      volumes:
+        - name: nexus
+          persistentVolumeClaim:
+            claimName: nexus
+      initContainers:
+        - name: set-mount-permission
+          image: busybox
+          command:
+            - sh
+            - '-c'
+            - chown -R 200:200 /nexus-data
+          volumeMounts:
+            - name: nexus
+              mountPath: /nexus-data
+          imagePullPolicy: Always
+      containers:
+        - name: nexus
+          image: sonatype/nexus3
+          env:
+            - name: NEXUS_CONTEXT
+              value: nexus
+          ports:
+            - name: http
+              containerPort: 8081
+              protocol: TCP
+            - name: docker
+              containerPort: 5000
+              protocol: TCP
+          volumeMounts:
+            - name: nexus
+              mountPath: /nexus-data
+          imagePullPolicy: Always
+      restartPolicy: Always
+      nodeSelector:
+        role: infra
