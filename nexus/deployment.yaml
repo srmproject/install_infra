@@ -41,6 +41,9 @@ spec:
             - name: docker
               containerPort: 5000
               protocol: TCP
+            - name: docker-group
+              containerPort: 5001
+              protocol: TCP
           volumeMounts:
             - name: nexus
               mountPath: /nexus-data

@@ -9,10 +9,17 @@ spec:
   - host: sre.choilab.xyz
     http:
       paths:
-      - backend:
+      - path: /nexus(/|$)(.*)
+        pathType: Prefix
+        backend:
           service:
             name: nexus
             port:
               name: http
-        path: /nexus(/|$)(.*)
+      - path: /nexus-docker(/|$)(.*)
         pathType: Prefix
+        backend:
+          service:
+            name: nexus-docker
+            port:
+              name: docker
