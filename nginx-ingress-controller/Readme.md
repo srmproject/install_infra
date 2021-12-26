@@ -1,7 +1,8 @@
-- [개요](#--)
-- [helm 저장소 추가](#helm-------)
-- [설치](#--)
-- [참고자료](#----)
+- [개요](#개요)
+- [helm 저장소 추가](#helm-저장소-추가)
+- [설치](#설치)
+- [ingress 리소스 생성방법](#ingress-리소스-생성방법)
+- [참고자료](#참고자료)
 
 # 개요
 * nginx ingress controller 설치방법을 설명합니다.
@@ -21,7 +22,7 @@ helm repo update
 > metallb설치가 필요합니다.
 ```sh
 kubectl create ns infra
-helm install -n infra nginx-ingress nginx-stable/nginx-ingress
+helm install -n infra nginx-ingress ingress-nginx/ingress-nginx
 ```
 
 ![installed](./imgs/installed.png)
