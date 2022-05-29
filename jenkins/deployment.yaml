@@ -38,11 +38,16 @@ spec:
         - name: kuebctl
           mountPath: /usr/local/bin/kubectl
         - name: helm
-          mountPath: /usr/local/bin/helm          
+          mountPath: /usr/local/bin/helm
+        - name: dev-jcp-frontend-core
+          mountPath: /app/dev/jcp-application
       volumes:
       - name: jenkins-home
         persistentVolumeClaim:
           claimName: jenkins
+      - name: dev-jcp-frontend-core
+        hostPath:
+          path: /mnt/data/dev/jcp/frontend-core/micro
       - name: helm
         hostPath:
           path: /usr/local/bin/helm
