@@ -1,0 +1,24 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgresql-cluster-sonarqube
+spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:14.2
+  instances: 3
+  storage:
+    size: 3Gi
+  postgresql:
+    parameters:
+      max_worker_processes: "40"
+      timezone: "Asia/Seoul"
+    pg_hba:
+      - host all postgres all trust
+  primaryUpdateStrategy: unsupervised
+  enableSuperuserAccess: true
+  bootstrap:
+    initdb:
+      database: sonarDB
+      encoding: UTF8
+      localeCType: C
+      localeCollate: C
+      owner: sonarUser
