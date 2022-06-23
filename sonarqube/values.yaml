@@ -1,0 +1,18 @@
+nodeSelector:
+  role: "infra"
+
+persistence:
+  enabled: true
+  existingClaim: sonarqube
+
+postgresql:
+  persistence:
+    storageClass: local-storage-retain
+    size: 10Gi
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  hosts:
+    - name: sonarqube.choilab.xyz
+      path: /
