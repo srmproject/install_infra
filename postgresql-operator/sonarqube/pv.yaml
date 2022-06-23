@@ -14,7 +14,7 @@ spec:
     path: /mnt/data/postgresql-sonarqube
   claimRef:
     name: postgresql-cluster-sonarqube-1
-    namespace: default
+    namespace: infra
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -32,7 +32,7 @@ spec:
     path: /mnt/data/postgresql-sonarqube
   claimRef:
     name: postgresql-cluster-sonarqube-2
-    namespace: default
+    namespace: infra
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -50,4 +50,4 @@ spec:
     path: /mnt/data/postgresql-sonarqube
   claimRef:
     name: postgresql-cluster-sonarqube-3
-    namespace: default
+    namespace: infra

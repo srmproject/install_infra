@@ -2,6 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: postgresql-cluster-sonarqube
+  namespace: infra
 spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:14.2
   instances: 3
